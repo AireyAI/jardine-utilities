@@ -383,7 +383,9 @@ footer .fcontact a:hover{color:var(--color-accent)}
   .stat:nth-child(2)::before,.stat:nth-child(4)::before{display:none}
   .stat:nth-child(3),.stat:nth-child(4){border-top:1px solid rgba(255,255,255,.14)}
   .hero .wrap{padding-block:120px 92px}
+  .hero-bg img,.hero-bg video{object-position:64% 42%}
   .hero-bg img{animation:kenburns 26s ease-in-out infinite alternate;will-change:transform}
+  .hero-veil{background:linear-gradient(178deg, rgba(7,20,42,.9) 0%, rgba(7,20,42,.58) 34%, rgba(7,20,42,.34) 60%, rgba(7,20,42,.5) 100%), var(--gradient-hero)}
   .footbar{flex-direction:column;align-items:flex-start}
 }
 @media (max-width:560px){
@@ -810,12 +812,13 @@ footer .fcontact a:hover{color:var(--color-accent)}
 
   /* ---------- HERO INTRO ---------- */
   function startHero(instant){
-    // Hero video: desktop/laptop only (precise pointer). On phones/tablets a full-bleed
-    // 720p autoplay video janks, drains battery, and iOS Low Power Mode blocks it — so
-    // touch devices get the poster image with a subtle CSS zoom instead (see .hero-bg img @760).
-    if(fine && !reduce){
+    // Hero video on all devices (muted+playsinline autoplay). Mobile gets a lighter 960px
+    // encode for smooth decode; the poster (img) still shows if autoplay is blocked
+    // (e.g. iOS Low Power Mode). Parallax is disabled on touch so nothing fights the decode.
+    if(!reduce){
       var v=document.getElementById('heroVid'), s=v.querySelector('source');
-      if(s && s.dataset.src){ s.src=s.dataset.src; v.load();
+      var src = window.matchMedia('(max-width:760px)').matches ? 'img/hero-mobile.mp4' : s.dataset.src;
+      if(src){ s.src=src; v.load();
         v.addEventListener('canplay',function(){ v.classList.add('show'); var p=v.play(); if(p&&p.catch)p.catch(function(){}); },{once:true}); }
     }
     if(instant || !GSAP){ document.querySelectorAll('.hero-title .line-in,[data-hero]').forEach(function(e){e.style.opacity=1;e.style.transform='none';}); return; }
@@ -884,8 +887,8 @@ footer .fcontact a:hover{color:var(--color-accent)}
     ST.create({trigger:el,start:'top 92%',once:true,onEnter:function(){ GSAP.to(o,{v:end,duration:1.7,ease:'power2.out',onUpdate:function(){el.textContent=Math.round(o.v)+suf;}}); }});
   });
 
-  /* ---------- HERO PARALLAX ---------- */
-  GSAP.to('#heroBg',{yPercent:16,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
+  /* ---------- HERO PARALLAX (desktop only — keeps the mobile video smooth on scroll) ---------- */
+  if(fine) GSAP.to('#heroBg',{yPercent:16,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
   GSAP.to('.emergency .bg',{yPercent:12,ease:'none',scrollTrigger:{trigger:'.emergency',start:'top bottom',end:'bottom top',scrub:true}});
   document.querySelectorAll('[data-parallax]').forEach(function(el){
     GSAP.fromTo(el,{yPercent:-8},{yPercent:8,ease:'none',scrollTrigger:{trigger:el,start:'top bottom',end:'bottom top',scrub:true}});
