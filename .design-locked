@@ -1,0 +1,16 @@
+{
+  "project": "jardine-utilities",
+  "locked_at": "2026-06-24",
+  "system": "stripe-elegant",
+  "design_md_ref": "Stripe (design.md:14385)",
+  "rationale": "Redesign of johnjardineplanthire.co.uk/home-utilities-ltd (Jardine Utilities Ltd, Scottish water-utility framework contractor). Brief: more modern, professional, clean. Picked the stripe-elegant family benchmarked against the Stripe exemplar for trust-through-polish: light canvas, deep-navy text, weight-300 display authority, blue-tinted multi-layer shadows, conservative radius, gradient-mesh hero. Brand-tinted to water-utility petrol (#0E4C63) + fresh aqua (#16B8CC), with hi-vis amber (#F5A524) reserved for the 24/7 emergency band only.",
+  "brand_colors": {
+    "primary": "#0E4C63",
+    "accent": "#16B8CC",
+    "safety": "#F5A524",
+    "text": "#0A2230",
+    "bg": "#FFFFFF"
+  },
+  "direction": "Trusted Infrastructure (light) — direction delegated by Kyle ('you decide, use one of the 69 templates, very professional').",
+  "note": "Sandbox redesign. Real content sourced live from the existing site (richer than a blank client_intake). Two-hero-mock gate satisfied via delegated single-direction pick."
+}

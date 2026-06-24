@@ -1,0 +1,69 @@
+/* Jardine Utilities — stripe-elegant family, brand-tinted to water-utility petrol + aqua.
+   Benchmarked against design.md → Stripe (light canvas, deep-navy text, weight-300 display
+   authority, blue-tinted multi-layer shadows, conservative 6–12px radius, gradient-mesh hero). */
+
+:root {
+  /* ---- Palette ---- */
+  --color-primary:        #15489E;   /* royal blue — from the JJ mark (buttons, accents) */
+  --color-primary-dark:   #0B2545;   /* brand navy — dark sections, footer, scrolled nav */
+  --color-primary-light:  #6E9AD6;   /* faded royal for muted accents */
+  --color-accent:         #2E8BE0;   /* bright sky blue — the spark (from the JJ hook) */
+  --color-accent-soft:    #DCEBFB;   /* light blue wash for tints / badges */
+  --color-bg:             #FFFFFF;
+  --color-surface:        #F2F6FC;   /* cool near-white surface */
+  --color-surface-2:      #E6EEF8;   /* second elevation */
+  --color-text:           #0C2440;   /* deep navy, NOT pure black */
+  --color-muted:          #4C617D;   /* secondary text */
+  --color-line:           #DCE5F0;   /* hairline borders */
+  --color-safety:         #F4B01F;   /* amber — matches the logo stripe; 24/7 emergency only */
+  --color-flag-red:       #E63027;   /* logo stripe red — tiny tertiary accents only */
+
+  /* ---- Type ---- */
+  --font-display: "Clash Display", "Sora", Inter, system-ui, sans-serif;
+  --font-body:    "Inter", system-ui, -apple-system, sans-serif;
+  --fs-h1:    clamp(2.6rem, 5.4vw, 4.6rem);
+  --fs-h2:    clamp(2rem, 3.6vw, 3.1rem);
+  --fs-h3:    1.6rem;
+  --fs-h4:    1.25rem;
+  --fs-h5:    1.0625rem;
+  --fs-body:  1.0625rem;
+  --fs-small: 0.875rem;
+  --fs-eyebrow: 0.78rem;
+  --tracking-display: -0.035em;
+  --tracking-eyebrow: 0.18em;
+  --leading-display:  1.04;
+  --leading-body:     1.7;
+
+  /* ---- Spacing (8px grid) ---- */
+  --space-1:  4px;  --space-2:  8px;  --space-3: 12px; --space-4: 16px;
+  --space-5: 24px;  --space-6: 32px;  --space-7: 48px; --space-8: 64px;
+  --space-9: 96px;  --space-10: 128px; --space-11: 160px; --space-12: 200px;
+
+  /* ---- Radius ---- */
+  --radius-sm:   8px;
+  --radius-md:  14px;
+  --radius-lg:  22px;
+  --radius-full: 9999px;
+
+  /* ---- Shadows — layered, petrol-tinted (Stripe move) ---- */
+  --shadow-sm: 0 1px 2px  rgba(12, 36, 64, 0.05),
+               0 1px 3px  rgba(12, 36, 64, 0.07);
+  --shadow-md: 0 6px 16px rgba(21, 72, 158, 0.10),
+               0 12px 30px rgba(12, 36, 64, 0.07);
+  --shadow-lg: 0 18px 40px rgba(21, 72, 158, 0.16),
+               0 30px 60px rgba(12, 36, 64, 0.10);
+  --shadow-aqua: 0 10px 30px rgba(46, 139, 224, 0.32);
+
+  /* ---- Hero gradient mesh ---- */
+  --gradient-hero:
+    radial-gradient(ellipse 80% 60% at 15% 0%,  rgba(46,139,224,0.20), transparent 60%),
+    radial-gradient(ellipse 70% 70% at 100% 30%, rgba(11,37,69,0.34),  transparent 55%);
+
+  /* ---- Motion + glass ---- */
+  --ease-out:    cubic-bezier(.22,.61,.36,1);
+  --ease-inout:  cubic-bezier(.65,.05,.36,1);
+  --ease-spring: cubic-bezier(.16,1.06,.3,1);
+  --glass-bg:     rgba(255,255,255,.07);
+  --glass-border: rgba(255,255,255,.16);
+  --glass-blur:   blur(14px) saturate(140%);
+}
